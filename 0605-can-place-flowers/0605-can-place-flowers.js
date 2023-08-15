@@ -4,17 +4,24 @@
  * @return {boolean}
  */
 var canPlaceFlowers = function(flowerbed, n) {
+    
+   let emptyBed = 0;
 
-  for (let i = 0; i < flowerbed.length && n !== 0; i++) {
+  for (let i = 0; i < flowerbed.length; i++) {
     if (
       flowerbed[i] === 0 &&
       flowerbed[i - 1] !== 1 &&
       flowerbed[i + 1] !== 1
     ) {
-      n--;
-      i++;
+      emptyBed += 1;
+        i++;
     }
   }
-  return n === 0;
+ 
+    if ( emptyBed >= n){
+        return true;
+    }else{
+        return false;
+    }
 };
     
